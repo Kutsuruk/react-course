@@ -14,11 +14,11 @@ class App extends Component {
     showCars: false,
   }
 
-  changeTitleHandler = (newTitle) => {
+  /* changeTitleHandler = (newTitle) => {
     this.setState({
       pageTitle: newTitle
     })
-  }
+  } */
 
   handleInput = (event) => {
     this.setState({
@@ -29,6 +29,18 @@ class App extends Component {
   toogleCarsHandler = () => {
     this.setState({
       showCars: !this.state.showCars
+    })
+  }
+
+  onChangeName(name, index) {
+    const car = this.state.cars[index]
+    car.name = name
+
+    const cars = [...this.state.cars]
+    cars[index] = car
+
+    this.setState({
+      cars
     })
   }
 
@@ -51,7 +63,7 @@ class App extends Component {
           name={car.name}
           year={car.year}
           model={car.model}
-          onChangeTitle={this.changeTitleHandler.bind(this, car.name)}
+          onChangeName={event => this.onChangeName(event.target.value, index)}
         />
       )
     })
@@ -65,9 +77,9 @@ class App extends Component {
 
           <input type='text'  onChange={this.handleInput} />
 
-          <button onClick={this.changeTitleHandler.bind(this, 'Changed!')}>
+          {/* <button onClick={this.changeTitleHandler.bind(this, 'Changed!')}>
               Change title
-          </button>
+          </button> */}
 
           { cars }
 
