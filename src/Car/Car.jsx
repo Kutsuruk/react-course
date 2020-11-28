@@ -14,8 +14,8 @@ const Car = props => {
                     Year: {props.year}
                 </strong>
             </p>
-            {/* <button onClick={props.onChangeTitle}>Change title</button> */}
             <input onChange={props.onChangeName}  value={props.name} />
+            <button onClick={props.onDelete}>Delete</button>
         </div>
     )
 }

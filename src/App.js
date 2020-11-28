@@ -36,8 +36,18 @@ class App extends Component {
     const car = this.state.cars[index]
     car.name = name
 
-    const cars = [...this.state.cars]
+    const cars = [...this.state.cars] // clone new array from cars array with spread operator
     cars[index] = car
+
+    this.setState({
+      cars
+    })
+  }
+
+  deleteHandler(index) {
+    // console.log('Deleted')
+    const cars = [...this.state.cars]
+    cars.splice(index, 1)
 
     this.setState({
       cars
@@ -63,6 +73,7 @@ class App extends Component {
           name={car.name}
           year={car.year}
           model={car.model}
+          onDelete={this.deleteHandler.bind(this, index)}
           onChangeName={event => this.onChangeName(event.target.value, index)}
         />
       )
