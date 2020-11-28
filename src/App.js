@@ -60,7 +60,6 @@ class App extends Component {
 
     const divStyle = {
     textAlign: 'center',
-    background: 'grey'
   }
 
   let cars = null
@@ -92,7 +91,14 @@ class App extends Component {
               Change title
           </button> */}
 
+        <div style={{
+          width: 400,
+          margin: 'auto',
+          paddingTop: 20,
+        }}>
           { cars }
+        </div>
+          
 
       </div>
     );

@@ -1,13 +1,10 @@
 import React from 'react'
+import './Car.css'
+
 
 const Car = props => {
     return(
-        <div style={{
-            border: 'solid 1px black',
-            margin: '10px',
-            padding: '10px',
-            display: 'block',
-        }}>
+        <div className='Car'>
             <h3>Car name: {props.name} {props.model}</h3>
             <p>
                 <strong>
