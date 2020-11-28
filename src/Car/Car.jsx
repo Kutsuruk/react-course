@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 import './Car.css'
 
 
@@ -16,8 +17,18 @@ const Car = props => {
         inputClasses.push('bold')
     }
 
+    const style = {
+        boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
+        border: '1px solid #ccc',
+        ':hover': {
+            border: '1px solid #aaa',
+            boxShadow: '0 4px 15px 0 rgba(0, 0, 0, .25)',
+            cursor: 'pointer',
+        }
+    }
+
     return(
-        <div className='Car'>
+        <div className='Car' style={style}>
             <h3>Car name: {props.name} {props.model}</h3>
             <p>
                 <strong>
@@ -35,4 +46,4 @@ const Car = props => {
 }
 
 
-export default Car;
+export default Radium(Car);
