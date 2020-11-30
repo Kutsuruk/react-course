@@ -27,3 +27,8 @@ $color-green: green;
     font-weight: bold;
     border: 2px solid green;
 }
+
+.btn-delete:hover {
+    background-color: rgb(201, 48, 48);
+    outline: none;
+}

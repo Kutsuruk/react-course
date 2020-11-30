@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import './Car.scss'
 
+
 const Car = props => {
 
     const inputClasses = ['input']
@@ -39,7 +40,7 @@ const Car = props => {
                 value={props.name} 
                 className={inputClasses.join(' ')}
             />
-            <button onClick={props.onDelete}>Delete</button>
+            <button className='btn-delete' onClick={props.onDelete}>Delete</button>
         </div>
     )
 }

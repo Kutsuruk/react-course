@@ -3,8 +3,12 @@ import React, {Component} from 'react';
 import Car from './Car/Car'
 
 class App extends Component {
-  
-  state = {
+
+  constructor(props) {
+    console.log('App constructor!')
+    super(props)
+
+    this.state = {
     cars: [
       {name: 'Tesla', year: 2015, model: 'S'},
       {name: 'BMW', year: 2013, model: '328i'},
@@ -12,6 +16,7 @@ class App extends Component {
     ],
     pageTitle: 'React components',
     showCars: false,
+  }
   }
 
   /* changeTitleHandler = (newTitle) => {
@@ -54,9 +59,16 @@ class App extends Component {
     })
   }
 
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
 
   render() {
-    console.log('Render!')
+    console.log('App render!')
 
     const divStyle = {
     textAlign: 'center',
@@ -83,7 +95,7 @@ class App extends Component {
       <div style={divStyle}>
           <h1>{this.state.pageTitle}</h1>
 
-          <button onClick={this.toogleCarsHandler}>Toggle cars</button><br />
+          <button className='btn-toggle' onClick={this.toogleCarsHandler}>Toggle cars</button><br />
 
           <input type='text'  onChange={this.handleInput} />
 
