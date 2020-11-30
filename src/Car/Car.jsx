@@ -2,7 +2,6 @@ import React from 'react'
 import Radium from 'radium'
 import './Car.scss'
 
-
 const Car = props => {
 
     const inputClasses = ['input']
