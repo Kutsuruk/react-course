@@ -1,19 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Radium from 'radium'
 import './Car.scss'
 
 
-const Car = props => {
+class Car extends Component {
 
-    const inputClasses = ['input']
+    componentWillReceiveProps(nextProps) {
+        console.log('Car componentWillReceiveProps', nextProps)
+    }
 
-    if(props.name !== '') {
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('Car shouldComponentUpdate', nextProps, nextState)
+        return true
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('Car componentWillUpdate', nextProps, nextState)
+    }
+
+    componentDidUpdate() {
+        console.log('Car componentDidUpdate')
+    }
+
+    componentWillUnmount() {
+        console.log('Car componentWillUnmount')
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log('Car getDerivedStateFromProps', nextProps, prevState)
+        return prevState
+    }
+
+    getSnapshotBeforeUpdate() {
+        console.log('Car getSnapshotBeforeUpdate')
+    }
+
+    render() {
+        console.log('Car render!')
+        const inputClasses = ['input']
+
+    if(this.props.name !== '') {
         inputClasses.push('green')
     } else {
         inputClasses.push('red')
     }
 
-    if(props.name.length > 4) {
+    if(this.props.name.length > 4) {
         inputClasses.push('bold')
     }
 
@@ -29,20 +61,21 @@ const Car = props => {
 
     return(
         <div className='Car' style={style}>
-            <h3>Car name: {props.name} {props.model}</h3>
+            <h3>Car name: {this.props.name} {this.props.model}</h3>
             <p>
                 <strong>
-                    Year: {props.year}
+                    Year: {this.props.year}
                 </strong>
             </p>
             <input 
-                onChange={props.onChangeName}  
-                value={props.name} 
+                onChange={this.props.onChangeName}  
+                value={this.props.name} 
                 className={inputClasses.join(' ')}
             />
-            <button className='btn-delete' onClick={props.onDelete}>Delete</button>
+            <button className='btn-delete' onClick={this.props.onDelete}>Delete</button>
         </div>
     )
+    }
 }
 
 
