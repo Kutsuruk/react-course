@@ -26,17 +26,22 @@ class Car extends Component {
         console.log('Car componentWillUnmount')
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
+   /*  static getDerivedStateFromProps(nextProps, prevState) {
         console.log('Car getDerivedStateFromProps', nextProps, prevState)
         return prevState
     }
 
     getSnapshotBeforeUpdate() {
         console.log('Car getSnapshotBeforeUpdate')
-    }
+    } */
 
     render() {
         console.log('Car render!')
+
+        if(Math.random() > 0.7) {
+            throw new Error('Car random fail!')
+        }
+
         const inputClasses = ['input']
 
     if(this.props.name !== '') {
