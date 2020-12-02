@@ -1,4 +1,4 @@
-import './App.scss';
+import classes from './App.module.scss';
 import React, {Component} from 'react';
 import Car from './Car/Car'
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
@@ -20,12 +20,6 @@ class App extends Component {
     showCars: false,
   }
   }
-
-  /* changeTitleHandler = (newTitle) => {
-    this.setState({
-      pageTitle: newTitle
-    })
-  } */
 
   handleInput = (event) => {
     this.setState({
@@ -102,7 +96,7 @@ class App extends Component {
 
           <hr />
 
-          <button className='btn-toggle' onClick={this.toogleCarsHandler}>Toggle cars</button><br />
+          <button className={classes['btn-toggle']} onClick={this.toogleCarsHandler}>Toggle cars</button><br />
 
           <input type='text'  onChange={this.handleInput} />
 

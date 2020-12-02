@@ -1,71 +1,27 @@
 import React, { Component } from 'react'
-import Radium from 'radium'
-import './Car.scss'
-
+import classes from './Car.module.scss'
+import withClass from '../hoc/withClass'
 
 class Car extends Component {
 
-    componentWillReceiveProps(nextProps) {
-        console.log('Car componentWillReceiveProps', nextProps)
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('Car shouldComponentUpdate', nextProps, nextState)
-        return true
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        console.log('Car componentWillUpdate', nextProps, nextState)
-    }
-
-    componentDidUpdate() {
-        console.log('Car componentDidUpdate')
-    }
-
-    componentWillUnmount() {
-        console.log('Car componentWillUnmount')
-    }
-
-   /*  static getDerivedStateFromProps(nextProps, prevState) {
-        console.log('Car getDerivedStateFromProps', nextProps, prevState)
-        return prevState
-    }
-
-    getSnapshotBeforeUpdate() {
-        console.log('Car getSnapshotBeforeUpdate')
-    } */
-
     render() {
-        console.log('Car render!')
+    console.log('Car render!')
 
-        /* if(Math.random() > 0.7) {
-            throw new Error('Car random fail!')
-        } */
-
-        const inputClasses = ['input']
+    const inputClasses = [classes.input]
 
     if(this.props.name !== '') {
-        inputClasses.push('green')
+        inputClasses.push(classes.green)
     } else {
-        inputClasses.push('red')
+        inputClasses.push(classes.red)
     }
 
     if(this.props.name.length > 4) {
-        inputClasses.push('bold')
+        inputClasses.push(classes.bold)
     }
 
-    const style = {
-        boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
-        border: '1px solid #ccc',
-        ':hover': {
-            border: '1px solid #aaa',
-            boxShadow: '0 4px 15px 0 rgba(0, 0, 0, .25)',
-            cursor: 'pointer',
-        }
-    }
 
     return(
-        <div className='Car' style={style}>
+        <div>
             <h3>Car name: {this.props.name} {this.props.model}</h3>
             <p>
                 <strong>
@@ -77,11 +33,11 @@ class Car extends Component {
                 value={this.props.name} 
                 className={inputClasses.join(' ')}
             />
-            <button className='btn-delete' onClick={this.props.onDelete}>Delete</button>
+            <button className={classes['btn-delete']} onClick={this.props.onDelete}>Delete</button>
         </div>
     )
     }
 }
 
 
-export default Radium(Car);
+export default withClass(Car, classes.Car);
