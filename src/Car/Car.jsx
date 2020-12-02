@@ -5,6 +5,18 @@ import PropTypes from 'prop-types'
 
 class Car extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.inputRef = React.createRef()
+    }
+
+    componentDidMount() {
+        if(this.props.index === 0) {
+            this.inputRef.current.focus()
+        }
+    }
+
     render() {
     console.log('Car render!')
 
@@ -30,6 +42,7 @@ class Car extends Component {
                 </strong>
             </p>
             <input 
+                ref={this.inputRef}
                 onChange={this.props.onChangeName}  
                 value={this.props.name} 
                 className={inputClasses.join(' ')}
@@ -43,6 +56,7 @@ class Car extends Component {
 Car.propTypes = {
     name: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
     model: PropTypes.string.isRequired,
     onDelete: PropTypes.func.isRequired,
     onChangeName: PropTypes.func.isRequired,
