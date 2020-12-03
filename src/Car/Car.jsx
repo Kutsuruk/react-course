@@ -34,7 +34,7 @@ class Car extends Component {
 
 
     return(
-        <div>
+        <React.Fragment>
             <h3>Car name: {this.props.name} {this.props.model}</h3>
             <p>
                 <strong>
@@ -48,7 +48,7 @@ class Car extends Component {
                 className={inputClasses.join(' ')}
             />
             <button className={classes['btn-delete']} onClick={this.props.onDelete}>Delete</button>
-        </div>
+        </React.Fragment>
     )
     }
 }
